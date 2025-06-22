@@ -1,7 +1,7 @@
 let pavilions = [];
 
 function preload() {
-  for (let i = 2; i <= 9; i++) {
+  for (let i = 6; i <= 9; i++) {
     pavilions.push(loadModel(
       "https://koichandesu.github.io/memory-garden-p5/pavilion_" + i + ".obj",
       true
