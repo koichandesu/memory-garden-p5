@@ -1,10 +1,32 @@
+let pavilions = [];
+
+function preload() {
+  for (let i = 2; i <= 9; i++) {
+    pavilions.push(loadModel(
+      "https://koichandesu.github.io/memory-garden-p5/pavilion_" + i + ".obj",
+      true
+    ));
+  }
+}
+
 function setup() {
-  createCanvas(600, 400, WEBGL);
-  background(200);
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  angleMode(DEGREES);
 }
 
 function draw() {
-  rotateY(frameCount * 0.01);
-  normalMaterial();
-  box(100);
+  background(240);
+  orbitControl();
+
+  ambientLight(150);
+  directionalLight(255, 255, 255, -1, -1, -1);
+  ambientMaterial(80, 100, 80);
+
+  for (let i = 0; i < pavilions.length; i++) {
+    push();
+    scale(1.5);
+    rotateY(180);
+    model(pavilions[i]);
+    pop();
+  }
 }
